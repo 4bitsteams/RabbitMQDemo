@@ -1,0 +1,18 @@
+services:
+  messagebroker:
+    image: rabbitmq:management
+
+  rabbitmq.application.producer:
+    image: ${DOCKER_REGISTRY-}rabbitmqapplicationproducer
+    build:
+      context: .
+      dockerfile: RabbitMQ.Application.Producer/Dockerfile
+
+  rabbitmqc.application.consumer:
+    image: ${DOCKER_REGISTRY-}rabbitmqapplicationconsumer
+    build:
+      context: .
+      dockerfile: RabbitMQC.Application.Consumer/Dockerfile
+
+
+
